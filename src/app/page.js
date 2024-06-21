@@ -22,6 +22,7 @@ import { Navbar,
         DarkThemeToggle
  } from "flowbite-react";
 import CustomCard from "@/app/components/Card";
+import AutoSizeImage from "@/app/components/AutoSizeImage";
 
 export default function Home() {
   const [items, setItems] = useState ([]);
@@ -35,7 +36,6 @@ export default function Home() {
     }
     fetchData();
   },[]);
-
 
   return (
     <>
@@ -67,11 +67,11 @@ export default function Home() {
        </div> 
     <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
-        <Image src="\banner\banner-1.jpg" alt="..." />
-        <Image src="\banner\banner-2.jpg" alt="..." />
-        <Image src="\banner\banner-3.jpg" alt="..." />
-        <Image src="\banner\banner-4.jpg" alt="..." />
-        <Image src="\banner\banner-5.jpg" alt="..." />
+        <AutoSizeImage src="/banner/banner-1.jpg" alt="..." />
+        <AutoSizeImage src="/banner/banner-2.jpg" alt="..." />
+        <AutoSizeImage src="/banner/banner-3.jpg" alt="..." />
+        <AutoSizeImage src="/banner/banner-4.jpg" alt="..." />
+        <AutoSizeImage src="/banner/banner-5.jpg" alt="..." />
       </Carousel>
     </div>
     <div className="bg-white py-16">
@@ -82,11 +82,9 @@ export default function Home() {
       className="max-w-sm"
       imgAlt={item.Picture.PictureDescription1}
       imgSrc={item.Picture.PictureUrl1}
-
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {item.ScenicSpotName}
-
       </h5>
       <p className="font-normal text-gray-700 dark:text-gray-400">
         {item.DescriptionDetail}
@@ -107,11 +105,13 @@ export default function Home() {
 
     <div className = "container mx-auto">
         <div className = "grid grid-cols-1 md:grid-cols-4 gap-4 text-black">
-          { items.map( (item ,index) =>
+          { items.map( (item ,index) =>(
             <CustomCard item={item} key={index}/>
-          )}
-        </div>
+          ))}
     </div>
+
+    </div>
+    
     </div>
     <Footer container>
       <FooterCopyright href="#" by="Flowbite™   純粹拿來作業用沒有營利" year={2022} />
